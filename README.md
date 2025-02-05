@@ -65,22 +65,65 @@ public:
 
 # Max SubArray
 ```
+class Solution {
+    public static int maxSubArray(int[] nums) {
+        int max = nums[0], sum = 0;
+        for (int num : nums) {
+            sum += num;
+            max = Math.max(max, sum);
+            if (sum < 0) sum = 0;
+        }
+        return max;
+    }
 
+    public static void main(String[] arg) {
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(maxSubArray(nums));
+    }
+}
 ```
-# Output
+
 
 
 # Search 2d Matrix 2
 ```
-
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                if(matrix[i][j] == target) return true;
+            }
+        }
+        return false;
+    }
+}
 ```
-# Output
+
 
 # Sub Pow
 ```
-
+class Solution {
+    int superPow(int a, int[] b) {
+        int num=0;
+        for(int i:b){
+            num=(num*10+i)%1140;
+        }
+        return binexpo(a,num,1337);
+    }
+    public int binexpo(int a, int b, int m){
+        a%=m;
+        int res=1;
+        while(b>0){
+            if((b&1)==1)
+                res=(res*a)%m;
+            a=(a*a)%m;
+            b>>=1;
+        }
+        return res;
+    }
+}
 ```
-# Output
+
 
 
 
